@@ -12,20 +12,42 @@ const UserDetails = ({ setPage, formData, setFormData }) => {
       >
         Back
       </button>{" "}
-      <input
-        type="text"
-        placeholder="Name..."
-        value={formData.name}
-        onChange={(event) =>
-          setFormData({ ...formData, name: event.target.value })
-        }
-      />
+      <div>
+        <input
+          type="text"
+          placeholder="Name..."
+          value={formData.name}
+          onChange={(event) =>
+            setFormData({ ...formData, name: event.target.value })
+          }
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="mobile..."
+          value={formData.mobile}
+          onChange={(event) =>
+            setFormData({ ...formData, mobile: event.target.value })
+          }
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="remarks..."
+          value={formData.remarks}
+          onChange={(event) =>
+            setFormData({ ...formData, remarks: event.target.value })
+          }
+        />
+      </div>
       <button
         onClick={() => {
           setPage((currPage) => currPage + 1);
         }}
       >
-        Next
+        Verify via OTP
       </button>{" "}
     </div>
   );

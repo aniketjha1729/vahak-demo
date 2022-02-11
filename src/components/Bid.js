@@ -25,7 +25,7 @@ const Bid = ({ setPage, formData, setFormData }) => {
           setPage((currPage) => currPage + 1);
         }}
       >
-        Bid
+        Next
       </button>{" "}
     </div>
   );
