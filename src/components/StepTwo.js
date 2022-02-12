@@ -7,7 +7,7 @@ const StepTwo = (props) => {
   };
   return (
     <Formik initialValues={props.data} onSubmit={handleSubmit}>
-      {() => (
+      {({values}) => (
         <Form>
           <p>Mobile</p>
           <Field name="mobile" />
@@ -15,7 +15,7 @@ const StepTwo = (props) => {
           <Field name="name" />
           <p>remarks</p>
           <Field name="remarks" />
-          <button type="button" >Back</button>
+          <button type="button" onClick={()=>props.prev(values)} >Back</button>
           <button type="submit">Next</button>
         </Form>
       )}

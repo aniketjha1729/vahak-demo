@@ -12,7 +12,7 @@ function App() {
     carType: "",
     numberOfTravellers: "",
     bidAmount: "",
-    mobile: "all",
+    mobile: "",
     name: "",
     remarks: "",
     otp: "",
