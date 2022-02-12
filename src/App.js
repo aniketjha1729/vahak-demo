@@ -22,18 +22,7 @@ function App() {
     otp: "",
   });
 
-  const {
-    sourceDestination,
-    destination,
-    carType,
-    numberOfTravellers,
-    bidAmount,
-    mobile,
-    name,
-    remarks,
-    otp,
-  } = formData;
-
+  
   const PageDisplay = () => {
     if (page === 0) {
       return (
