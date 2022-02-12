@@ -9,7 +9,6 @@ import "./index.css";
 
 function App() {
   const [page, setPage] = useState(0);
-
   const [formData, setFormData] = useState({
     sourceDestination: "",
     destination: "",
@@ -22,9 +21,7 @@ function App() {
     otp: "",
   });
 
-  const displayData = () => {
-    console.log(formData);
-  };
+
 
   const PageDisplay = () => {
     if (page === 0) {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Header from "./Header";
@@ -11,6 +11,13 @@ const JourneyDetails = ({ setPage, formData, setFormData, displayData }) => {
   //   carType: "",
   //   numberOfTravellers: "",
   // });
+  const storeData = (formData) => {
+    localStorage.setItem("journeyDetails", JSON.stringify(formData));
+  };
+  const [check, setCheck] = useState(true);
+  useEffect(() => {
+    console.log(check);
+  }, [check]);
 
   const formik = useFormik({
     initialValues: {
@@ -20,15 +27,17 @@ const JourneyDetails = ({ setPage, formData, setFormData, displayData }) => {
       numberOfTravellers: formData.numberOfTravellers,
     },
 
-    onSubmit: (values) => {
-      setFormData({
+    onSubmit: async (values) => {
+      await setFormData({
         ...formData,
         sourceDestination: formik.values.sourceDestination,
         destination: formik.values.destination,
         carType: formik.values.carType,
         numberOfTravellers: formik.values.numberOfTravellers,
       });
-      displayData();
+      storeData(formData);
+
+      setCheck(false);
     },
 
     validationSchema: Yup.object({
