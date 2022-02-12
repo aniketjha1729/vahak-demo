@@ -1,21 +1,36 @@
-import React from "react";
-import { Formik, Form, useFormik } from "formik";
+import React, { useState } from "react";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import Header from "./Header";
 import TextField from "@material-ui/core/TextField";
-import FormInput from "./formComponent/FormInput";
 
-const JourneyDetails = ({ setPage, formData, setFormData }) => {
+const JourneyDetails = ({ setPage, formData, setFormData, displayData }) => {
+  // const [formData, setFormData] = useState({
+  //   sourceDestination: "",
+  //   destination: "",
+  //   carType: "",
+  //   numberOfTravellers: "",
+  // });
+
   const formik = useFormik({
     initialValues: {
-      sourceDestination: "",
-      destination: "",
-      carType: "",
-      numberOfTravellers: "",
+      sourceDestination: formData.sourceDestination,
+      destination: formData.destination,
+      carType: formData.carType,
+      numberOfTravellers: formData.numberOfTravellers,
     },
+
     onSubmit: (values) => {
-      console.log(values);
+      setFormData({
+        ...formData,
+        sourceDestination: formik.values.sourceDestination,
+        destination: formik.values.destination,
+        carType: formik.values.carType,
+        numberOfTravellers: formik.values.numberOfTravellers,
+      });
+      displayData();
     },
+
     validationSchema: Yup.object({
       sourceDestination: Yup.string().required("Required"),
       destination: Yup.string().required("Required"),
@@ -24,7 +39,7 @@ const JourneyDetails = ({ setPage, formData, setFormData }) => {
     }),
   });
 
-  console.log(formik.errors);
+  console.log(formData);
 
   return (
     <>
@@ -102,7 +117,14 @@ const JourneyDetails = ({ setPage, formData, setFormData }) => {
             <p>{formik.errors.numberOfTravellers}</p>
           ) : null}
         </div>
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          // onClick={() => {
+          //   setPage((currPage) => currPage + 1);
+          // }}
+        >
+          Submit
+        </button>
       </form>
     </>
   );

@@ -22,7 +22,10 @@ function App() {
     otp: "",
   });
 
-  
+  const displayData = () => {
+    console.log(formData);
+  };
+
   const PageDisplay = () => {
     if (page === 0) {
       return (
@@ -30,6 +33,7 @@ function App() {
           formData={formData}
           setFormData={setFormData}
           setPage={setPage}
+          displayData={displayData}
         />
       );
     } else if (page === 1) {
