@@ -1,11 +1,12 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import TextField from "./formUi/TextField";
 import Button from "@material-ui/core/Button";
 import * as Yup from "yup";
 import Header from "./Header";
 import Select from "./formUi/Select";
 import cars from "./car.json";
+import "./steps.css";
 
 const stepOneValidate = Yup.object({
   sourceDestination: Yup.string().required().label("Source is required"),
@@ -21,26 +22,52 @@ const StepOne = (props) => {
     props.next(values);
   };
   return (
-    <>
-      <Header />
-      <Formik
-        validationSchema={stepOneValidate}
-        initialValues={props.data}
-        onSubmit={handleSubmit}
-      >
-        {() => (
-          <Form>
-            <TextField name="sourceDestination" label="sourceDestination" />
-            <TextField name="destination" label="destination" />
-            <Select name="carType" label="Cars" options={cars} />
-            <TextField name="numberOfTravellers" label="numberOfTravellers" />
-            <Button type="submit" variant="contained" color="primary">
-              Next
-            </Button>
-          </Form>
-        )}
-      </Formik>
-    </>
+    <div>
+      <Header heading="Place your Bid (1/4 step)" />
+      <div className="formConatiner">
+        <Formik
+          validationSchema={stepOneValidate}
+          initialValues={props.data}
+          onSubmit={handleSubmit}
+        >
+          {() => (
+            <Form>
+              <div className="form">
+                <div className="stepOne-rows stepOne-destinations">
+                  <div>
+                    <TextField
+                      name="sourceDestination"
+                      label="Source Location *"
+                    />
+                  </div>
+                  <div>
+                    <TextField name="destination" label="Destination *" />
+                  </div>
+                </div>
+                <div className="stepOne-rows">
+                  <Select
+                    name="carType"
+                    label="Enter Car Type *"
+                    options={cars}
+                  />
+                </div>
+                <div className="stepOne-rows">
+                  <TextField
+                    name="numberOfTravellers"
+                    label="Number Of Travellers"
+                  />
+                </div>
+                <div className="stepOne-rows">
+                  <Button fullWidth type="submit" variant="contained" color="primary">
+                    Enter Bid Details
+                  </Button>
+                </div>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    </div>
   );
 };
 

@@ -40,10 +40,10 @@ function App() {
   ];
 
   return (
-    <div className="form">
+    <>
       <Navbar />
-      {steps[currentStep]}
-    </div>
+      <div className="stepsContainer">{steps[currentStep]}</div>
+    </>
   );
 }
 

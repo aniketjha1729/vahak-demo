@@ -17,6 +17,8 @@ const SelectWrapper = ({ name, options, ...otherProps }) => {
     select: true,
     variant: "outlined",
     onChange: handleChange,
+    size: "small",
+    fullWidth:true
   };
 
   if (meta && meta.touched && meta.error) {

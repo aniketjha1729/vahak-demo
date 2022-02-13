@@ -5,7 +5,7 @@ import Header from "./Header";
 const StepThree = () => {
   return (
     <>
-      <Header />
+      <Header heading="Place your Bid (3/4 step)" />
       <Formik>
         {() => (
           <Form>
