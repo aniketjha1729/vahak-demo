@@ -3,17 +3,23 @@ import { Formik, Form, Field } from "formik";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import TextField from "./formUi/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 import Header from "./Header";
 import * as Yup from "yup";
 import "./steps.css";
+import StepOneDetails from "./StepOneDetails";
 
 const stepTwoValidate = Yup.object({
-  bidAmount: Yup.number().required().label("Enter your bid amount."),
+  bidAmount: Yup.number().required(),
 });
 
 const StepTwo = (props) => {
   const handleSubmit = (values) => {
     props.next(values);
+  };
+  const editDetails = (values) => {
+    props.prev(values);
   };
   return (
     <div>
@@ -28,31 +34,32 @@ const StepTwo = (props) => {
             <Form>
               <div className="form">
                 <div className="stepTwo-prevDataContainer">
-                  <div className="stepTwo-prevData">
-                    <h5>JOURNEY DETAILS</h5>
-                    <p>
-                      {props.data.sourceDestination} ---
-                      {props.data.destination}
-                    </p>
-                    <p>
-                      {props.data.numberOfTravellers} Persons,
-                      {props.data.carType}
-                    </p>
-                  </div>
+                  <StepOneDetails
+                    sourceDestination={props.data.sourceDestination}
+                    destination={props.data.destination}
+                    numberOfTravellers={props.data.numberOfTravellers}
+                    carType={props.data.carType}
+                  />
                   <div className="prevButton">
                     <button type="button" onClick={() => props.prev(values)}>
                       Back
                     </button>
                   </div>
                 </div>
-                <div className="dividerContainer">
-                  <Divider />
-                </div>
+                <Divider />
                 <div className="bidAmountContainer">
-                  <div className="rupeeSymbol">&#8377;</div>
-                  <div>
-                    <TextField name="bidAmount" />
+                  <div className="bidAmount">
+                    <div className="rupeeSymbol">&#8377;</div>
+                    <div>
+                      <TextField placeholder="0" name="bidAmount" />
+                    </div>
                   </div>
+                </div>
+                <div className="negotiate">
+                  <FormControlLabel
+                    control={<Checkbox color="primary" />}
+                    label="Rate Negotiable"
+                  />
                 </div>
                 <Button
                   fullWidth

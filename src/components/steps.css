@@ -7,7 +7,6 @@
 }
 
 .form {
-  /* border: 1px solid black; */
   width: 600px;
 }
 
@@ -45,12 +44,24 @@
 .bidAmountContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 200px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
-.rupeeSymbol{
+.bidAmount {
+  display: flex;
+  margin-top: 90px;
+  margin-left: 170px;
+  width: 300px;
+}
+
+.rupeeSymbol {
   font-size: 50px;
   font-weight: bold;
+}
+
+.negotiate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

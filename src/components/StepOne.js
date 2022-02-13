@@ -38,10 +38,17 @@ const StepOne = (props) => {
                     <TextField
                       name="sourceDestination"
                       label="Source Location *"
+                      variant="outlined"
+                      inputProps="false"
                     />
                   </div>
                   <div>
-                    <TextField name="destination" label="Destination *" />
+                    <TextField
+                      name="destination"
+                      label="Destination *"
+                      variant="outlined"
+                      inputProps="false"
+                    />
                   </div>
                 </div>
                 <div className="stepOne-rows">
@@ -55,10 +62,17 @@ const StepOne = (props) => {
                   <TextField
                     name="numberOfTravellers"
                     label="Number Of Travellers"
+                    variant="outlined"
+                    inputProps="false"
                   />
                 </div>
                 <div className="stepOne-rows">
-                  <Button fullWidth type="submit" variant="contained" color="primary">
+                  <Button
+                    fullWidth
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                  >
                     Enter Bid Details
                   </Button>
                 </div>
