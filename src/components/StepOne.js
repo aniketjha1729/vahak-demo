@@ -1,8 +1,11 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import TextField from "../components/formUi/TextField";
+import TextField from "./formUi/TextField";
+import Button from "@material-ui/core/Button";
 import * as Yup from "yup";
 import Header from "./Header";
+import Select from "./formUi/Select";
+import cars from "./car.json";
 
 const stepOneValidate = Yup.object({
   sourceDestination: Yup.string().required().label("Source is required"),
@@ -28,17 +31,12 @@ const StepOne = (props) => {
         {() => (
           <Form>
             <TextField name="sourceDestination" label="sourceDestination" />
-            <ErrorMessage name="sourceDestination" />
-            <p>destination</p>
-            <Field name="destination" />
-            <ErrorMessage name="destination" />
-            <p>carType</p>
-            <Field name="carType" />
-            <ErrorMessage name="carType" />
-            <p>numberOfTravellers</p>
-            <Field name="numberOfTravellers" />
-            <ErrorMessage name="numberOfTravellers" />
-            <button type="submit">Next</button>
+            <TextField name="destination" label="destination" />
+            <Select name="carType" label="Cars" options={cars} />
+            <TextField name="numberOfTravellers" label="numberOfTravellers" />
+            <Button type="submit" variant="contained" color="primary">
+              Next
+            </Button>
           </Form>
         )}
       </Formik>
