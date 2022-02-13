@@ -18,9 +18,6 @@ const StepTwo = (props) => {
   const handleSubmit = (values) => {
     props.next(values);
   };
-  const editDetails = (values) => {
-    props.prev(values);
-  };
   return (
     <div>
       <Header heading="Place your Bid (2/4 step)" />

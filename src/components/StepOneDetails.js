@@ -2,7 +2,7 @@ import React from "react";
 import "./steps.css";
 const StepOneDetails = (props) => {
   return (
-    <div className="stepTwo-prevData">
+    <div className="journeyDetails">
       <h5>JOURNEY DETAILS</h5>
       <p>
         {props.sourceDestination} ---

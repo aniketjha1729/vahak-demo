@@ -29,12 +29,13 @@
   justify-content: space-around;
 }
 
-.stepTwo-prevData {
+.journeyDetails {
   width: 500px;
 }
 
-.stepTwo-prevData h5 {
+.journeyDetails h5 {
   color: rgb(107, 96, 96);
+  margin-bottom: 5px;
 }
 
 .prevButton {
