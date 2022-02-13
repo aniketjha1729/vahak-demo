@@ -14,8 +14,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 
 const stepThreeValidate = Yup.object({
-  mobile: Yup.number()
-  .min(10, "Must be of 10 digit"),
+  mobile: Yup.number().min(10, "Must be of 10 digit"),
   name: Yup.string().required(),
   remarks: Yup.string(),
 });
@@ -50,7 +49,10 @@ const StepThree = (props) => {
                   </div>
                 </div>
                 <Divider />
-                <StepTwoDetails bidAmount={props.data.bidAmount} />
+                <StepTwoDetails
+                  bidAmount={props.data.bidAmount}
+                  stepThree={false}
+                />
                 <Divider />
                 <div className="formThreeContainer">
                   <div className="formThree">

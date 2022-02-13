@@ -3,7 +3,6 @@
   justify-content: center;
   margin-top: 50px;
   width: 100%;
-  /* border: 1px solid black; */
 }
 
 .form {
@@ -106,4 +105,60 @@
 
 .whatsapp div img {
   width: 90px;
+}
+
+.twoThreeDetails {
+  height: 100px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.bidSummary {
+  display: flex;
+  width: 570px;
+  justify-content: space-between;
+}
+
+.formThreeData {
+  margin-top: 5px;
+}
+
+.formThreeData h5 {
+  color: rgb(107, 96, 96);
+  margin-bottom: 5px;
+}
+
+.finalBidAmount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalBidAmount div:nth-child(1) {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.finalBidAmount div:nth-child(2) {
+  color: rgb(107, 96, 96);
+}
+
+.formFourContainer {
+  margin-top: 20px;
+}
+.otpInstructions {
+  margin-left: 10px;
+  width: 400px;
+}
+.otpInstructions span {
+  color: #303fa0;
+  cursor: pointer;
+}
+
+.formFour {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-around;
 }
