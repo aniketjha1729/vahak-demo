@@ -3,6 +3,7 @@ import StepOne from "./components/StepOne";
 import StepTwo from "./components/StepTwo";
 import StepThree from "./components/StepThree";
 import "./index.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -38,7 +39,12 @@ function App() {
     <StepThree next={handleNextStep} data={data} prev={handlePrevStep} />,
   ];
 
-  return <div className="form">{steps[currentStep]}</div>;
+  return (
+    <div className="form">
+      <Navbar />
+      {steps[currentStep]}
+    </div>
+  );
 }
 
 export default App;
