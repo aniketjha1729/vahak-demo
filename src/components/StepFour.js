@@ -1,7 +1,6 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import Header from "./Header";
-import Button from "@material-ui/core/Button";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import * as Yup from "yup";
 import "./steps.css";
@@ -38,11 +37,13 @@ const StepFour = (props) => {
                     numberOfTravellers={props.data.numberOfTravellers}
                     carType={props.data.carType}
                   />
-                  <div className="prevButton">
-                    <button type="button" onClick={() => props.prev(values)}>
-                      Back
-                    </button>
-                  </div>
+                  <span
+                    className="prevButton"
+                    onClick={() => props.prev(values)}
+                  >
+                    <ModeEditIcon style={{ fontSize: 15 }} />
+                    Edit
+                  </span>
                 </div>
                 <Divider />
                 <StepTwoDetails
@@ -57,10 +58,17 @@ const StepFour = (props) => {
                   <div className="otpInstructions">
                     <div>
                       We've sent an OTP to your number, Please enter it below to
-                      submit your bid <b>{props.data.mobile} </b>
-                      <span>
-                        <ModeEditIcon style={{ fontSize: 15 }} /> Edit
-                      </span>
+                      submit your bid.
+                      {props.data.mobile ? (
+                        <>
+                          <b>{props.data.mobile}</b> &nbsp;
+                          <span onClick={() => props.prev(values)}>
+                            <ModeEditIcon style={{ fontSize: 15 }} /> Edit
+                          </span>
+                        </>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                   <div className="formFour">

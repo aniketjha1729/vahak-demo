@@ -12,9 +12,11 @@ const stepOneValidate = Yup.object({
   sourceDestination: Yup.string().required().label("Source is required"),
   destination: Yup.string().required().label("destination is required"),
   carType: Yup.string().required().label("carType is required"),
-  numberOfTravellers: Yup.string()
-    .required()
-    .label("numberOfTravellers is required"),
+  numberOfTravellers: Yup.mixed().when("carType", {
+    is: "SUV",
+    then: Yup.number().required().max(6),
+    otherwise: Yup.number().required().max(4),
+  }),
 });
 
 const StepOne = (props) => {

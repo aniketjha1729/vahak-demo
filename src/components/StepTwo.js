@@ -9,6 +9,7 @@ import Header from "./Header";
 import * as Yup from "yup";
 import "./steps.css";
 import StepOneDetails from "./StepOneDetails";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
 
 const stepTwoValidate = Yup.object({
   bidAmount: Yup.number().required(),
@@ -37,11 +38,13 @@ const StepTwo = (props) => {
                     numberOfTravellers={props.data.numberOfTravellers}
                     carType={props.data.carType}
                   />
-                  <div className="prevButton">
-                    <button type="button" onClick={() => props.prev(values)}>
-                      Back
-                    </button>
-                  </div>
+                  <span
+                    className="prevButton"
+                    onClick={() => props.prev(values)}
+                  >
+                    <ModeEditIcon style={{ fontSize: 15 }} />
+                    Edit
+                  </span>
                 </div>
                 <Divider />
                 <div className="formTwoConatiner">

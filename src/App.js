@@ -10,14 +10,14 @@ import swal from "sweetalert";
 function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [data, setData] = useState({
-    sourceDestination: "Patna",
-    destination: "Mumbai",
-    carType: "SUV",
-    numberOfTravellers: "5",
-    bidAmount: "100050",
-    mobile: "7449849564",
-    name: "Aniket Kumar",
-    remarks: "Nice to meet you but mee",
+    sourceDestination: "",
+    destination: "",
+    carType: "",
+    numberOfTravellers: "",
+    bidAmount: "",
+    mobile: "",
+    name: "",
+    remarks: "",
     otp: "",
   });
 
@@ -25,7 +25,7 @@ function App() {
     setData((prev) => ({ ...prev, ...newData }));
     if (final) {
       if (data.otp == "1234") {
-        swal("Great!", "You cab is successfully Booked!", "success");
+        swal("Bingo!", "You Vahak is on the way!", "success");
         console.log("from submiteed", data);
         return;
       } else {

@@ -12,6 +12,7 @@ import MobileField from "./formUi/MobileField";
 import WhatsApp from "../assets/whatsapp.png";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
 
 const stepThreeValidate = Yup.object({
   mobile: Yup.number().min(10, "Must be of 10 digit"),
@@ -42,11 +43,13 @@ const StepThree = (props) => {
                     numberOfTravellers={props.data.numberOfTravellers}
                     carType={props.data.carType}
                   />
-                  <div className="prevButton">
-                    <button type="button" onClick={() => props.prev(values)}>
-                      Back
-                    </button>
-                  </div>
+                  <span
+                    className="prevButton"
+                    onClick={() => props.prev(values)}
+                  >
+                    <ModeEditIcon style={{ fontSize: 15 }} />
+                    Edit
+                  </span>
                 </div>
                 <Divider />
                 <StepTwoDetails

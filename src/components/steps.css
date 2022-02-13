@@ -38,7 +38,9 @@
 }
 
 .prevButton {
+  color: #303fa0;
   width: 50px;
+  cursor: pointer;
 }
 
 .formTwoConatiner {
