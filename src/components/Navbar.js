@@ -1,14 +1,14 @@
 import React from "react";
-import banner from "../assets/icon.png";
-import "./nav.css";
+import Icon from "../assets/icon.png";
+import "./navbar.css";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <div className="bannerWrapper">
-        <div className="banner">
-          <img src={banner} alt="" />
+      <div className="brand">
+        <div className="brandIcon">
+          <img src={Icon} />
         </div>
-        <div className="bannerName">Vahak</div>
+        <div className="brandName">Vahak</div>
       </div>
     </div>
   );

@@ -1,80 +1,50 @@
 import { useState } from "react";
-import Navbar from "./components/Navbar";
-import Otp from "./components/Otp";
-import SubmitBid from "./components/SubmitBid";
-import Bid from "./components/Bid";
-import JourneyDetails from "./components/JourneyDetails";
-import UserDetails from "./components/UserDetails";
+import StepOne from "./components/StepOne";
+import StepTwo from "./components/StepTwo";
+import StepThree from "./components/StepThree";
 import "./index.css";
+import Navbar from "./components/Navbar";
+import StepFour from "./components/StepFour";
 
 function App() {
-  const [page, setPage] = useState(0);
-
-  const [formData, setFormData] = useState({
-    sourceDestination: "",
-    destination: "",
-    carType: "",
-    numberOfTravellers: "",
-    bidAmount: "",
-    mobile: "all",
-    name: "",
-    remarks: "",
+  const [currentStep, setCurrentStep] = useState(0);
+  const [data, setData] = useState({
+    sourceDestination: "Patna",
+    destination: "Mumbai",
+    carType: "SUV",
+    numberOfTravellers: "5",
+    bidAmount: "100050",
+    mobile: "7449849564",
+    name: "Aniket Kumar",
+    remarks: "Nice to meet you but mee",
     otp: "",
   });
 
-  const {
-    sourceDestination,
-    destination,
-    carType,
-    numberOfTravellers,
-    bidAmount,
-    mobile,
-    name,
-    remarks,
-    otp,
-  } = formData;
-
-  const PageDisplay = () => {
-    if (page === 0) {
-      return (
-        <JourneyDetails
-          formData={formData}
-          setFormData={setFormData}
-          setPage={setPage}
-        />
-      );
-    } else if (page === 1) {
-      return (
-        <Bid formData={formData} setFormData={setFormData} setPage={setPage} />
-      );
-    } else if (page === 2) {
-      return (
-        <UserDetails
-          formData={formData}
-          setFormData={setFormData}
-          setPage={setPage}
-        />
-      );
-    } else if (page === 3) {
-      return (
-        <Otp formData={formData} setFormData={setFormData} setPage={setPage} />
-      );
-    } else {
-      return (
-        <SubmitBid
-          formData={formData}
-          setFormData={setFormData}
-          setPage={setPage}
-        />
-      );
+  const handleNextStep = (newData, final = false) => {
+    setData((prev) => ({ ...prev, ...newData }));
+    if (final) {
+      console.log("from submiteed");
+      return;
     }
+    setCurrentStep((prev) => prev + 1);
   };
+
+  const handlePrevStep = (newData) => {
+    setData((prev) => ({ ...prev, ...newData }));
+    setCurrentStep((prev) => prev - 1);
+  };
+
+  const steps = [
+    <StepOne next={handleNextStep} data={data} />,
+    <StepTwo next={handleNextStep} data={data} prev={handlePrevStep} />,
+    <StepThree next={handleNextStep} data={data} prev={handlePrevStep} />,
+    <StepFour next={handleNextStep} data={data} prev={handlePrevStep} />,
+  ];
 
   return (
     <>
       <Navbar />
-      <div className="form"></div>
-      {PageDisplay()}
+      <div className="stepsContainer">{steps[currentStep]}</div>
     </>
   );
 }
