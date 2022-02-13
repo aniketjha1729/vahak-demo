@@ -10,22 +10,26 @@ import Divider from "@material-ui/core/Divider";
 import StepTwoDetails from "./StepTwoDetails";
 import OtpField from "./formUi/OtpField";
 
-const stepThreeValidate = Yup.object({
-  mobile: Yup.number().min(10, "Must be of 10 digit"),
-  name: Yup.string().required(),
-  remarks: Yup.string(),
+const stepFourValidate = Yup.object({
+  otp1: Yup.number().required(),
+  otp2: Yup.number().required(),
+  otp3: Yup.number().required(),
+  otp4: Yup.number().required(),
 });
 
 const StepFour = (props) => {
   const handleSubmit = (values) => {
-    props.next(values);
+    // console.log(values.otp1 + values.otp2 + values.otp3 + values.otp4);
+    values.otp = values.otp1 + values.otp2 + values.otp3 + values.otp4;
+    // console.log(values);
+    props.next(values, true);
   };
   return (
     <div>
       <Header heading="Place your Bid (4/4 step)" />
       <div className="formConatiner">
         <Formik
-          validationSchema={stepThreeValidate}
+          validationSchema={stepFourValidate}
           initialValues={props.data}
           onSubmit={handleSubmit}
         >
@@ -70,6 +74,17 @@ const StepFour = (props) => {
                     <OtpField name="otp3" />
                     <OtpField name="otp4" />
                   </div>
+                </div>
+                <div style={{ marginTop: "10px" }}>
+                  <Button
+                    fullWidth
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    type="submit"
+                  >
+                    Next
+                  </Button>
                 </div>
               </div>
             </Form>

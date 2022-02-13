@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StepOne from "./components/StepOne";
 import StepTwo from "./components/StepTwo";
 import StepThree from "./components/StepThree";
@@ -13,14 +13,17 @@ function App() {
     destination: "Mumbai",
     carType: "SUV",
     numberOfTravellers: "5",
-    bidAmount: "100050",
-    mobile: "7449849564",
+    bidAmount: "185265",
+    mobile: "9934486601",
     name: "Aniket Kumar",
-    remarks: "Nice to meet you but mee",
+    remarks: "Hello nice to meet you",
     otp: "",
   });
 
-  const handleNextStep = (newData, final = false) => {
+  if (data.otp == "1234") {
+    alert("done");
+  }
+  const handleNextStep = (newData, final) => {
     setData((prev) => ({ ...prev, ...newData }));
     if (final) {
       console.log("from submiteed");
