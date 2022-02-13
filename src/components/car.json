@@ -1,16 +1,5 @@
 {
     "HatchBack":"HatchBack",
     "Sedan":"Sedan",
-    "SUV":"SUV",
-    "HatchBacks":"HatchBack",
-    "Sedans":"Sedan",
-    "SUVs":"SUV",
-    "HatchBackq":"HatchBack",
-    "Sedanq":"Sedan",
-    "SUVq":"SUV",
-    "HatchBackw":"HatchBack",
-    "Sedanw":"Sedan",
-    "SUVw":"SUV"
-    
-    
+    "SUV":"SUV"
 }

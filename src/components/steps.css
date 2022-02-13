@@ -23,3 +23,34 @@
 .stepOne-destinations div {
   width: 280px;
 }
+
+.stepTwo-prevDataContainer {
+  display: flex;
+  height: 80px;
+  justify-content: space-around;
+}
+
+.stepTwo-prevData {
+  width: 500px;
+}
+
+.stepTwo-prevData h5 {
+  color: rgb(107, 96, 96);
+}
+
+.prevButton {
+  width: 50px;
+}
+
+.bidAmountContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  border: 1px solid red;
+}
+
+.rupeeSymbol{
+  font-size: 50px;
+  font-weight: bold;
+}
