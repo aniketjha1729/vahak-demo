@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import TextField from "./formUi/TextField";
@@ -30,7 +30,7 @@ const StepTwo = (props) => {
           {({ values }) => (
             <Form>
               <div className="form">
-                <div className="stepTwo-prevDataContainer">
+                <div className="journeyDetails-Container">
                   <StepOneDetails
                     sourceDestination={props.data.sourceDestination}
                     destination={props.data.destination}
@@ -44,7 +44,7 @@ const StepTwo = (props) => {
                   </div>
                 </div>
                 <Divider />
-                <div className="bidAmountContainer">
+                <div className="formTwoConatiner">
                   <div className="bidAmount">
                     <div className="rupeeSymbol">&#8377;</div>
                     <div>

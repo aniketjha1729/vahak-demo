@@ -23,7 +23,7 @@
   width: 280px;
 }
 
-.stepTwo-prevDataContainer {
+.journeyDetails-Container {
   display: flex;
   height: 80px;
   justify-content: space-around;
@@ -42,7 +42,7 @@
   width: 50px;
 }
 
-.bidAmountContainer {
+.formTwoConatiner {
   display: flex;
   justify-content: center;
   height: 200px;
@@ -65,4 +65,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.bidAmountDetails {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.formThreeContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.formThree {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.formThreeRows {
+  margin-top: 30px;
+}
+
+.whatsapp {
+  display: flex;
+  height: 30px;
+  background-color: rgb(233, 227, 227);
+  align-items: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.whatsapp div:nth-child(1) {
+  margin-left: 10px;
+}
+
+.whatsapp div img {
+  width: 90px;
 }
