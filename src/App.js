@@ -10,14 +10,14 @@ import swal from "sweetalert";
 function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [data, setData] = useState({
-    sourceDestination: "Patna",
-    destination: "Mumbai",
-    carType: "SUV",
-    numberOfTravellers: "4",
-    bidAmount: "18256",
-    mobile: "993486601",
-    name: "Aniket Kumar",
-    remarks: "hello and bye goog ",
+    sourceDestination: "",
+    destination: "",
+    carType: "",
+    numberOfTravellers: "",
+    bidAmount: "",
+    mobile: "",
+    name: "",
+    remarks: "",
     otp: "",
   });
 
