@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import TextField from "../FormUi/TextField";
 import Button from "@material-ui/core/Button";
 import * as Yup from "yup";
-import "./steps.css";
+import "./stepThree.css";
 import StepOneDetails from "../StepOne/StepOneDetails";
 import Divider from "@material-ui/core/Divider";
 import StepTwoDetails from "../StepTwo/StepTwoDetails";

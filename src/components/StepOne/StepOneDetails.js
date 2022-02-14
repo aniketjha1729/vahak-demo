@@ -1,5 +1,5 @@
 import React from "react";
-import "./steps.css";
+import "./stepOne.css";
 const StepOneDetails = (props) => {
   return (
     <div className="journeyDetails">

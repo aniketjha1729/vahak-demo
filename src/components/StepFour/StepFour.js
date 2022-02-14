@@ -3,7 +3,7 @@ import { Formik, Form } from "formik";
 import Header from "../Header/Header";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import * as Yup from "yup";
-import "./steps.css";
+import "./stepFour.css";
 import StepOneDetails from "../StepOne/StepOneDetails";
 import Divider from "@material-ui/core/Divider";
 import StepTwoDetails from "../StepTwo/StepTwoDetails";

@@ -9,18 +9,6 @@
   width: 600px;
 }
 
-.stepOne-destinations {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.stepOne-rows {
-  margin-bottom: 30px;
-}
-.stepOne-destinations div {
-  width: 280px;
-}
 
 .journeyDetails-Container {
   display: flex;
@@ -28,14 +16,6 @@
   justify-content: space-around;
 }
 
-.journeyDetails {
-  width: 500px;
-}
-
-.journeyDetails h5 {
-  color: rgb(107, 96, 96);
-  margin-bottom: 5px;
-}
 
 .prevButton {
   color: #303fa0;
@@ -43,3 +23,20 @@
   cursor: pointer;
 }
 
+.formFourContainer {
+  margin-top: 20px;
+}
+.otpInstructions {
+  margin-left: 10px;
+  width: 400px;
+}
+.otpInstructions span {
+  color: #303fa0;
+  cursor: pointer;
+}
+
+.formFour {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-around;
+}

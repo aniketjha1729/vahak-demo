@@ -1,0 +1,72 @@
+.formConatiner {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.form {
+  width: 600px;
+}
+
+.prevButton {
+  color: #303fa0;
+  width: 50px;
+  cursor: pointer;
+}
+
+.formTwoConatiner {
+  display: flex;
+  justify-content: center;
+  height: 200px;
+}
+
+.bidAmount {
+  display: flex;
+  margin-top: 90px;
+  margin-left: 170px;
+  width: 300px;
+}
+
+.rupeeSymbol {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.negotiate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.twoThreeDetails {
+  height: 100px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.bidAmountDetails {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.finalBidAmount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalBidAmount div:nth-child(1) {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.finalBidAmount div:nth-child(2) {
+  color: rgb(107, 96, 96);
+}

@@ -7,7 +7,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Header from "../Header/Header";
 import * as Yup from "yup";
-import "./steps.css";
+import "./stepTwo.css";
 import StepOneDetails from "../StepOne/StepOneDetails";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 

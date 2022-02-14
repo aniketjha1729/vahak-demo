@@ -1,0 +1,40 @@
+.formConatiner {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.form {
+  width: 600px;
+}
+
+.stepOne-destinations {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.stepOne-rows {
+  margin-bottom: 30px;
+}
+.stepOne-destinations div {
+  width: 280px;
+}
+
+
+.journeyDetails {
+  width: 500px;
+}
+
+.journeyDetails h5 {
+  color: rgb(107, 96, 96);
+  margin-bottom: 5px;
+}
+
+.prevButton {
+  color: #303fa0;
+  width: 50px;
+  cursor: pointer;
+}
+

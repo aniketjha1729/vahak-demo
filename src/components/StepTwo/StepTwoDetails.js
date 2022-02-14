@@ -1,7 +1,7 @@
 import React from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import "./steps.css";
+import "./stepTwo.css";
 
 const StepTwoDetails = (props) => {
   const numberWithCommas = (num) => {

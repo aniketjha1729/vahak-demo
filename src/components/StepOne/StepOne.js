@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import Header from "../Header/Header";
 import Select from "../FormUi/Select";
 import cars from "./car.json";
-import "./steps.css";
+import "./stepOne.css";
 
 const stepOneValidate = Yup.object({
   sourceDestination: Yup.string().required().label("Source is required"),
