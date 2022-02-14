@@ -23,9 +23,79 @@ const StepFour = (props) => {
     props.next(values, true);
   };
   return (
-    <div>
+    <div className="bodyContainer">
       <Header heading="Place your Bid (4/4 step)" />
-      <div className="formConatiner">
+      <div className="bodyWrapper">
+        <div className="formContainer">
+          <Formik
+            validationSchema={stepFourValidate}
+            initialValues={props.data}
+          >
+            {({ values }) => (
+              <Form>
+                <div className="formOneDataContainer">
+                  <div>
+                    <StepOneDetails
+                      sourceDestination={props.data.sourceDestination}
+                      destination={props.data.destination}
+                      numberOfTravellers={props.data.numberOfTravellers}
+                      carType={props.data.carType}
+                    />
+                  </div>
+                  <div>
+                    <span
+                      className="prevButton"
+                      onClick={() => props.prev(values)}
+                    >
+                      <ModeEditIcon style={{ fontSize: 15 }} />
+                      Edit
+                    </span>
+                  </div>
+                </div>
+                <Divider style={{ marginTop: "20px" }} />
+                <StepTwoDetails
+                  name={props.data.name}
+                  mobile={props.data.mobile}
+                  remarks={props.data.remarks}
+                  bidAmount={props.data.bidAmount}
+                  stepThree={true}
+                />
+                <Divider style={{ marginTop: "20px" }} />
+                <div className="formFourContainer">
+                  <div className="otpInstructions">
+                    <div>
+                      We've sent an OTP to your number, Please enter it below to
+                      submit your bid &nbsp;
+                      {props.data.mobile ? (
+                        <>
+                          <b>{props.data.mobile}</b> &nbsp;
+                          <span onClick={() => props.prev(values)}>
+                            <ModeEditIcon style={{ fontSize: 15 }} /> Edit
+                          </span>
+                        </>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </div>
+                  <div className="formFourOtp">
+                    <OtpField name="otp1" />
+                    <OtpField name="otp2" />
+                    <OtpField name="otp3" />
+                    <OtpField
+                      name="otp4"
+                      onKeyUp={() => {
+                        handleSubmit(values);
+                      }}
+                    />
+                  </div>
+                </div>
+              </Form>
+            )}
+          </Formik>
+        </div>
+      </div>
+      {/* <div className="formConatiner">
         <Formik validationSchema={stepFourValidate} initialValues={props.data}>
           {({ values }) => (
             <Form>
@@ -87,7 +157,7 @@ const StepFour = (props) => {
             </Form>
           )}
         </Formik>
-      </div>
+      </div> */}
     </div>
   );
 };

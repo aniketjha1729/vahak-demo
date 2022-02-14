@@ -10,10 +10,14 @@ const StepTwoDetails = (props) => {
   return (
     <>
       <div
-        className={!props.stepThree ? "bidAmountDetails" : "twoThreeDetails"}
+        className={
+          !props.stepThree ? "formTwoDataContainer" : "twoThreeDetails"
+        }
       >
         {!props.stepThree ? (
-          <div>&#8377; {numberWithCommas(props.bidAmount)}</div>
+          <div className="rupeeSymbol">
+            &#8377; {numberWithCommas(props.bidAmount)}
+          </div>
         ) : (
           <div className="bidSummary">
             <div className="formThreeData">
@@ -30,7 +34,7 @@ const StepTwoDetails = (props) => {
         )}
       </div>
       {!props.stepThree ? (
-        <div className="negotiate">
+        <div className="formTwoCheckBox">
           <FormControlLabel
             control={<Checkbox color="primary" />}
             label="Rate Negotiable"

@@ -1,40 +1,34 @@
-.formConatiner {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
+.bodyContainer {
   width: 100%;
 }
 
-.form {
+.bodyWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 55px;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
   width: 600px;
 }
 
-.stepOne-destinations {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.stepOne-rows {
-  margin-bottom: 30px;
-}
-.stepOne-destinations div {
-  width: 280px;
-}
-
-
-.journeyDetails {
+.formOneContainer {
   width: 500px;
 }
 
-.journeyDetails h5 {
-  color: rgb(107, 96, 96);
-  margin-bottom: 5px;
+.formOneRows {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 
-.prevButton {
-  color: #303fa0;
-  width: 50px;
-  cursor: pointer;
+@media only screen and (max-width: 600px) {
+  .formContainer {
+    width: 400px;
+  }
+  .formOneContainer {
+    width: 380px;
+  }
 }
-

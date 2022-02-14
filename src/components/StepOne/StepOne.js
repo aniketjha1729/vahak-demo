@@ -24,64 +24,67 @@ const StepOne = (props) => {
     props.next(values);
   };
   return (
-    <div>
+    <div className="bodyContainer">
       <Header heading="Place your Bid (1/4 step)" />
-      <div className="formConatiner">
-        <Formik
-          validationSchema={stepOneValidate}
-          initialValues={props.data}
-          onSubmit={handleSubmit}
-        >
-          {() => (
-            <Form>
-              <div className="form">
-                <div className="stepOne-rows stepOne-destinations">
-                  <div>
+      <div className="bodyWrapper">
+        <div className="formContainer">
+          <Formik
+            validationSchema={stepOneValidate}
+            initialValues={props.data}
+            onSubmit={handleSubmit}
+          >
+            {() => (
+              <Form>
+                <div className="formOneContainer">
+                  <div className="formOneRows">
+                    <div>
+                      <TextField
+                        name="sourceDestination"
+                        label="Source Location *"
+                        variant="outlined"
+                        inputProps="false"
+                        style={{ fontSize: 15 }}
+                      />
+                    </div>
+                    <div>
+                      <TextField
+                        name="destination"
+                        label="Destination *"
+                        variant="outlined"
+                        inputProps="false"
+                      />
+                    </div>
+                  </div>
+                  <div className="formOneRows">
+                    <Select
+                      name="carType"
+                      label="Enter Car Type *"
+                      options={cars}
+                    />
+                  </div>
+                  <div className="formOneRows">
                     <TextField
-                      name="sourceDestination"
-                      label="Source Location *"
+                      name="numberOfTravellers"
+                      label="Number Of Travellers"
                       variant="outlined"
                       inputProps="false"
                     />
                   </div>
-                  <div>
-                    <TextField
-                      name="destination"
-                      label="Destination *"
-                      variant="outlined"
-                      inputProps="false"
-                    />
+                  <div className="formOneRows">
+                    <Button
+                      fullWidth
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                    >
+                      Enter Bid Details
+                    </Button>
                   </div>
                 </div>
-                <div className="stepOne-rows">
-                  <Select
-                    name="carType"
-                    label="Enter Car Type *"
-                    options={cars}
-                  />
-                </div>
-                <div className="stepOne-rows">
-                  <TextField
-                    name="numberOfTravellers"
-                    label="Number Of Travellers"
-                    variant="outlined"
-                    inputProps="false"
-                  />
-                </div>
-                <div className="stepOne-rows">
-                  <Button
-                    fullWidth
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                  >
-                    Enter Bid Details
-                  </Button>
-                </div>
-              </div>
-            </Form>
-          )}
-        </Formik>
+              </Form>
+            )}
+          </Formik>
+        </div>
       </div>
     </div>
   );

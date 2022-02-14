@@ -1,72 +1,97 @@
-.formConatiner {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
+.bodyContainer {
   width: 100%;
 }
 
-.form {
+.bodyWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 55px;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
   width: 600px;
 }
 
-.prevButton {
-  color: #303fa0;
-  width: 50px;
-  cursor: pointer;
+.formOneDataContainer {
+  width: 520px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.formTwoConatiner {
+.journeyDetails h5 {
+  margin-bottom: 5px;
+  color: rgba(179, 167, 167, 0.979);
+}
+
+.formTwoContainer {
   display: flex;
   justify-content: center;
-  height: 200px;
+  align-items: center;
+  height: 150px;
 }
 
-.bidAmount {
+.formTwo {
   display: flex;
-  margin-top: 90px;
-  margin-left: 170px;
-  width: 300px;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
 }
 
 .rupeeSymbol {
-  font-size: 50px;
+  font-size: 70px;
   font-weight: bold;
 }
 
-.negotiate {
+.formTwoCheckBox {
   display: flex;
+  justify-content: center;
+}
+
+.formTwoDataContainer {
+  display: flex;
+  height: 150px;
   justify-content: center;
   align-items: center;
 }
 
 .twoThreeDetails {
-  height: 100px;
   margin-top: 20px;
+}
+.bidSummary {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-.bidAmountDetails {
-  display: flex;
-  height: 200px;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
-  font-weight: bold;
+.formThreeData h5 {
+  margin-bottom: 5px;
+  color: rgba(179, 167, 167, 0.979);
 }
 
 .finalBidAmount {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .finalBidAmount div:nth-child(1) {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
 }
 
-.finalBidAmount div:nth-child(2) {
-  color: rgb(107, 96, 96);
+@media only screen and (max-width: 600px) {
+  .formContainer {
+    width: 400px;
+  }
+  .formOneContainer {
+    width: 380px;
+  }
+  .formOneDataContainer {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

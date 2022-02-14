@@ -2,11 +2,7 @@ import React from "react";
 import "./header.css";
 
 const Header = ({ heading }) => {
-  return (
-    <div className="header">
-      <div className="formHeading">{heading}</div>
-    </div>
-  );
+  return <div className="heading">{heading}</div>;
 };
 
 export default Header;

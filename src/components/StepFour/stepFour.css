@@ -1,42 +1,19 @@
-.formConatiner {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  width: 100%;
-}
-
-.form {
-  width: 600px;
-}
-
-
-.journeyDetails-Container {
-  display: flex;
-  height: 80px;
-  justify-content: space-around;
-}
-
-
-.prevButton {
-  color: #303fa0;
-  width: 50px;
-  cursor: pointer;
-}
-
 .formFourContainer {
-  margin-top: 20px;
+  margin-top: 30px;
 }
+
 .otpInstructions {
-  margin-left: 10px;
   width: 400px;
 }
-.otpInstructions span {
-  color: #303fa0;
-  cursor: pointer;
+
+.formFourOtp {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-around;
 }
 
-.formFour {
-  display: flex;
-  margin-top: 50px;
-  justify-content: space-around;
+@media only screen and (max-width: 600px) {
+  .otpInstructions {
+    width: 300px;
+  }
 }

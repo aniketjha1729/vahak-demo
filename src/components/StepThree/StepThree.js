@@ -25,9 +25,91 @@ const StepThree = (props) => {
     props.next(values);
   };
   return (
-    <div>
+    <div className="bodyContainer">
       <Header heading="Place your Bid (3/4 step)" />
-      <div className="formConatiner">
+      <div className="bodyWrapper">
+        <div className="formContainer">
+          <Formik
+            validationSchema={stepThreeValidate}
+            initialValues={props.data}
+            onSubmit={handleSubmit}
+          >
+            {({ values }) => (
+              <Form>
+                <div className="formOneDataContainer">
+                  <div>
+                    <StepOneDetails
+                      sourceDestination={props.data.sourceDestination}
+                      destination={props.data.destination}
+                      numberOfTravellers={props.data.numberOfTravellers}
+                      carType={props.data.carType}
+                    />
+                  </div>
+                  <div>
+                    <span
+                      className="prevButton"
+                      onClick={() => props.prev(values)}
+                    >
+                      <ModeEditIcon style={{ fontSize: 15 }} />
+                      Edit
+                    </span>
+                  </div>
+                </div>
+                <Divider style={{ marginTop: "20px" }} />
+                <StepTwoDetails
+                  bidAmount={props.data.bidAmount}
+                  stepThree={false}
+                />
+                <Divider style={{ marginTop: "20px" }} />
+                <div className="formThreeContainer">
+                  <div className="formThreeRows">
+                    <MobileField name="mobile" />
+                    <div className="greyBox">
+                      <div>
+                        <FormControlLabel
+                          control={<Checkbox color="primary" />}
+                          label="Get updates on"
+                        />
+                      </div>
+                      <div className="whatsappImg">
+                        <img src={WhatsApp} alt="" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="formThreeRows">
+                    <TextField
+                      name="name"
+                      label="Enter your Name *"
+                      variant="outlined"
+                      inputProps="false"
+                    />
+                  </div>
+                  <div className="formThreeRows">
+                    <TextField
+                      name="remarks"
+                      label="Enter Remarks (optional) "
+                      variant="outlined"
+                      inputProps="false"
+                    />
+                  </div>
+                  <div className="formThreeRows">
+                    <Button
+                      fullWidth
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      type="submit"
+                    >
+                      Verify via OTP
+                    </Button>
+                  </div>
+                </div>
+              </Form>
+            )}
+          </Formik>
+        </div>
+      </div>
+      {/* <div className="formConatiner">
         <Formik
           validationSchema={stepThreeValidate}
           initialValues={props.data}
@@ -106,7 +188,7 @@ const StepThree = (props) => {
             </Form>
           )}
         </Formik>
-      </div>
+      </div> */}
     </div>
   );
 };
