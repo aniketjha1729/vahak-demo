@@ -1,10 +1,10 @@
 import { useState } from "react";
-import StepOne from "./components/StepOne";
-import StepTwo from "./components/StepTwo";
-import StepThree from "./components/StepThree";
+import StepOne from "./components/StepOne/StepOne";
+import StepTwo from "./components/StepTwo/StepTwo";
+import StepThree from "./components/StepThree/StepThree";
+import Navbar from "./components/Navbar/Navbar";
+import StepFour from "./components/StepFour/StepFour";
 import "./index.css";
-import Navbar from "./components/Navbar";
-import StepFour from "./components/StepFour";
 import swal from "sweetalert";
 
 function App() {

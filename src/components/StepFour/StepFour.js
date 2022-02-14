@@ -1,13 +1,13 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import Header from "./Header";
+import Header from "../Header/Header";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import * as Yup from "yup";
 import "./steps.css";
-import StepOneDetails from "./StepOneDetails";
+import StepOneDetails from "../StepOne/StepOneDetails";
 import Divider from "@material-ui/core/Divider";
-import StepTwoDetails from "./StepTwoDetails";
-import OtpField from "./formUi/OtpField";
+import StepTwoDetails from "../StepTwo/StepTwoDetails";
+import OtpField from "../FormUi/OtpField";
 
 const stepFourValidate = Yup.object({
   otp1: Yup.number().required(),

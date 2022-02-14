@@ -1,10 +1,10 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import TextField from "./formUi/TextField";
+import TextField from "../FormUi/TextField";
 import Button from "@material-ui/core/Button";
 import * as Yup from "yup";
-import Header from "./Header";
-import Select from "./formUi/Select";
+import Header from "../Header/Header";
+import Select from "../FormUi/Select";
 import cars from "./car.json";
 import "./steps.css";
 

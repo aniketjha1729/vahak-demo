@@ -2,13 +2,13 @@ import React from "react";
 import { Formik, Form } from "formik";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
-import TextField from "./formUi/TextField";
+import TextField from "../FormUi/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Header from "./Header";
+import Header from "../Header/Header";
 import * as Yup from "yup";
 import "./steps.css";
-import StepOneDetails from "./StepOneDetails";
+import StepOneDetails from "../StepOne/StepOneDetails";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 
 const stepTwoValidate = Yup.object({
