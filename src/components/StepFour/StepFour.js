@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Formik, Form } from "formik";
 import Header from "../Header/Header";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
@@ -17,7 +17,29 @@ const stepFourValidate = Yup.object({
 });
 
 const StepFour = (props) => {
+  const one = useRef();
+  const two = useRef();
+  const three = useRef();
+  const four = useRef();
+
+  useEffect(() => {
+    one.current.focus();
+  }, []);
+
+  const focusTwo = () => {
+    two.current.focus();
+  };
+
+  const focusThree = () => {
+    three.current.focus();
+  };
+
+  const focusFour = () => {
+    four.current.focus();
+  };
+
   const handleSubmit = (values) => {
+    console.log(one);
     console.log(values.otp1 + values.otp2 + values.otp3 + values.otp4);
     props.data.otp = values.otp1 + values.otp2 + values.otp3 + values.otp4;
     props.next(values, true);
@@ -69,7 +91,10 @@ const StepFour = (props) => {
                       {props.data.mobile ? (
                         <>
                           <b>{props.data.mobile}</b> &nbsp;
-                          <span onClick={() => props.prev(values)}>
+                          <span
+                            className="prevButton"
+                            onClick={() => props.prev(values)}
+                          >
                             <ModeEditIcon style={{ fontSize: 15 }} /> Edit
                           </span>
                         </>
@@ -79,10 +104,15 @@ const StepFour = (props) => {
                     </div>
                   </div>
                   <div className="formFourOtp">
-                    <OtpField name="otp1" />
-                    <OtpField name="otp2" />
-                    <OtpField name="otp3" />
+                    <OtpField name="otp1" inputRef={one} onKeyUp={focusTwo} />
+                    <OtpField name="otp2" inputRef={two} onKeyUp={focusThree} />
                     <OtpField
+                      name="otp3"
+                      inputRef={three}
+                      onKeyUp={focusFour}
+                    />
+                    <OtpField
+                      inputRef={four}
                       name="otp4"
                       onKeyUp={() => {
                         handleSubmit(values);
@@ -95,69 +125,6 @@ const StepFour = (props) => {
           </Formik>
         </div>
       </div>
-      {/* <div className="formConatiner">
-        <Formik validationSchema={stepFourValidate} initialValues={props.data}>
-          {({ values }) => (
-            <Form>
-              <div className="form">
-                <div className="journeyDetails-Container">
-                  <StepOneDetails
-                    sourceDestination={props.data.sourceDestination}
-                    destination={props.data.destination}
-                    numberOfTravellers={props.data.numberOfTravellers}
-                    carType={props.data.carType}
-                  />
-                  <span
-                    className="prevButton"
-                    onClick={() => props.prev(values)}
-                  >
-                    <ModeEditIcon style={{ fontSize: 15 }} />
-                    Edit
-                  </span>
-                </div>
-                <Divider />
-                <StepTwoDetails
-                  name={props.data.name}
-                  mobile={props.data.mobile}
-                  remarks={props.data.remarks}
-                  bidAmount={props.data.bidAmount}
-                  stepThree={true}
-                />
-                <Divider />
-                <div className="formFourContainer">
-                  <div className="otpInstructions">
-                    <div>
-                      We've sent an OTP to your number, Please enter it below to
-                      submit your bid.
-                      {props.data.mobile ? (
-                        <>
-                          <b>{props.data.mobile}</b> &nbsp;
-                          <span onClick={() => props.prev(values)}>
-                            <ModeEditIcon style={{ fontSize: 15 }} /> Edit
-                          </span>
-                        </>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                  </div>
-                  <div className="formFour">
-                    <OtpField name="otp1" />
-                    <OtpField name="otp2" />
-                    <OtpField name="otp3" />
-                    <OtpField
-                      name="otp4"
-                      onKeyUp={() => {
-                        handleSubmit(values);
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </Form>
-          )}
-        </Formik>
-      </div> */}
     </div>
   );
 };

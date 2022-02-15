@@ -1,7 +1,9 @@
-
-
 .formThreeContainer {
   margin-top: 30px;
+}
+
+.prevButton {
+  cursor: pointer;
 }
 
 .greyBox {
@@ -25,7 +27,6 @@
   width: 100px;
   height: 50px;
 }
-
 
 @media only screen and (max-width: 600px) {
   .rupeeSymbol {

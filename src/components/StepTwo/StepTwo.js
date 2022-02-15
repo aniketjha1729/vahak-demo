@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Formik, Form } from "formik";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
@@ -16,6 +16,12 @@ const stepTwoValidate = Yup.object({
 });
 
 const StepTwo = (props) => {
+  const amount = useRef();
+
+  useEffect(() => {
+    amount.current.focus();
+  }, []);
+
   const handleSubmit = (values) => {
     props.next(values);
   };
@@ -53,9 +59,9 @@ const StepTwo = (props) => {
                 <Divider style={{ marginTop: "20px" }} />
                 <div className="formTwoContainer">
                   <div className="formTwo">
-                    <div className="rupeeSymbol">&#8377;</div>
+                    <div className="rupeeSymbol">&#8377;</div> &nbsp; &nbsp;
                     <div>
-                      <TextField name="bidAmount" />
+                      <TextField name="bidAmount" inputRef={amount} />
                     </div>
                   </div>
                 </div>
