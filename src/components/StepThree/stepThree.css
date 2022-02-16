@@ -28,9 +28,3 @@
   height: 50px;
 }
 
-@media only screen and (max-width: 600px) {
-  .rupeeSymbol {
-    font-size: 50px;
-    font-weight: bold;
-  }
-}

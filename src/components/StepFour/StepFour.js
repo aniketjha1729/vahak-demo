@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import { Formik, Form } from "formik";
-import Header from "../Header/Header";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import * as Yup from "yup";
 import "./stepFour.css";
@@ -45,87 +44,70 @@ const StepFour = (props) => {
     props.next(values, true);
   };
   return (
-    <div className="bodyContainer">
-      <Header heading="Place your Bid (4/4 step)" />
-      <div className="bodyWrapper">
-        <div className="formContainer">
-          <Formik
-            validationSchema={stepFourValidate}
-            initialValues={props.data}
-          >
-            {({ values }) => (
-              <Form>
-                <div className="formOneDataContainer">
-                  <div>
-                    <StepOneDetails
-                      sourceDestination={props.data.sourceDestination}
-                      destination={props.data.destination}
-                      numberOfTravellers={props.data.numberOfTravellers}
-                      carType={props.data.carType}
-                    />
-                  </div>
-                  <div>
+    <Formik validationSchema={stepFourValidate} initialValues={props.data}>
+      {({ values }) => (
+        <Form>
+          <div className="formOneDataContainer">
+            <div>
+              <StepOneDetails
+                sourceDestination={props.data.sourceDestination}
+                destination={props.data.destination}
+                numberOfTravellers={props.data.numberOfTravellers}
+                carType={props.data.carType}
+              />
+            </div>
+            <div>
+              <span className="prevButton" onClick={() => props.prev(values)}>
+                <ModeEditIcon style={{ fontSize: 15 }} />
+                Edit
+              </span>
+            </div>
+          </div>
+          <Divider style={{ marginTop: "20px" }} />
+          <StepTwoDetails
+            name={props.data.name}
+            mobile={props.data.mobile}
+            remarks={props.data.remarks}
+            bidAmount={props.data.bidAmount}
+            stepThree={true}
+          />
+          <Divider style={{ marginTop: "20px" }} />
+          <div className="formFourContainer">
+            <div className="otpInstructions">
+              <div>
+                We've sent an OTP to your number, Please enter it below to
+                submit your bid &nbsp;
+                {props.data.mobile ? (
+                  <>
+                    <b>{props.data.mobile}</b> &nbsp;
                     <span
                       className="prevButton"
                       onClick={() => props.prev(values)}
                     >
-                      <ModeEditIcon style={{ fontSize: 15 }} />
-                      Edit
+                      <ModeEditIcon style={{ fontSize: 15 }} /> Edit
                     </span>
-                  </div>
-                </div>
-                <Divider style={{ marginTop: "20px" }} />
-                <StepTwoDetails
-                  name={props.data.name}
-                  mobile={props.data.mobile}
-                  remarks={props.data.remarks}
-                  bidAmount={props.data.bidAmount}
-                  stepThree={true}
-                />
-                <Divider style={{ marginTop: "20px" }} />
-                <div className="formFourContainer">
-                  <div className="otpInstructions">
-                    <div>
-                      We've sent an OTP to your number, Please enter it below to
-                      submit your bid &nbsp;
-                      {props.data.mobile ? (
-                        <>
-                          <b>{props.data.mobile}</b> &nbsp;
-                          <span
-                            className="prevButton"
-                            onClick={() => props.prev(values)}
-                          >
-                            <ModeEditIcon style={{ fontSize: 15 }} /> Edit
-                          </span>
-                        </>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                  </div>
-                  <div className="formFourOtp">
-                    <OtpField name="otp1" inputRef={one} onKeyUp={focusTwo} />
-                    <OtpField name="otp2" inputRef={two} onKeyUp={focusThree} />
-                    <OtpField
-                      name="otp3"
-                      inputRef={three}
-                      onKeyUp={focusFour}
-                    />
-                    <OtpField
-                      inputRef={four}
-                      name="otp4"
-                      onKeyUp={() => {
-                        handleSubmit(values);
-                      }}
-                    />
-                  </div>
-                </div>
-              </Form>
-            )}
-          </Formik>
-        </div>
-      </div>
-    </div>
+                  </>
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
+            <div className="formFourOtp">
+              <OtpField name="otp1" inputRef={one} onKeyUp={focusTwo} />
+              <OtpField name="otp2" inputRef={two} onKeyUp={focusThree} />
+              <OtpField name="otp3" inputRef={three} onKeyUp={focusFour} />
+              <OtpField
+                inputRef={four}
+                name="otp4"
+                onKeyUp={() => {
+                  handleSubmit(values);
+                }}
+              />
+            </div>
+          </div>
+        </Form>
+      )}
+    </Formik>
   );
 };
 

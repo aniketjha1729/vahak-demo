@@ -6,3 +6,24 @@
   margin-top: 50px;
   width: 100%;
 }
+
+.bodyContainer {
+  width: 100%;
+}
+.bodyWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 55px;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  width: 600px;
+}
+
+@media only screen and (max-width: 600px) {
+  .formContainer {
+    width: 400px;
+  }
+}

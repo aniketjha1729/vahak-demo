@@ -4,8 +4,10 @@ import StepTwo from "./components/StepTwo/StepTwo";
 import StepThree from "./components/StepThree/StepThree";
 import Navbar from "./components/Navbar/Navbar";
 import StepFour from "./components/StepFour/StepFour";
+
 import "./index.css";
 import swal from "sweetalert";
+import Header from "./components/Header/Header";
 
 function App() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -49,10 +51,24 @@ function App() {
     <StepFour next={handleNextStep} data={data} prev={handlePrevStep} />,
   ];
 
+  const heading = [
+    "Place your Bid (1/4 step)",
+    "Place your Bid (2/4 step)",
+    "Place your Bid (3/4 step)",
+    "Place your Bid (4/4 step)",
+  ];
+
   return (
     <>
       <Navbar />
-      <div className="stepsContainer">{steps[currentStep]}</div>
+      <div className="stepsContainer">
+        <div className="bodyContainer">
+          <Header heading={heading[currentStep]} />
+          <div className="bodyWrapper">
+            <div className="formContainer">{steps[currentStep]}</div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
