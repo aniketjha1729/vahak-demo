@@ -4,10 +4,9 @@ import StepTwo from "./components/StepTwo/StepTwo";
 import StepThree from "./components/StepThree/StepThree";
 import Navbar from "./components/Navbar/Navbar";
 import StepFour from "./components/StepFour/StepFour";
-
-import "./index.css";
 import swal from "sweetalert";
 import Header from "./components/Header/Header";
+import "./Styles/root.css";
 
 function App() {
   const [currentStep, setCurrentStep] = useState(0);

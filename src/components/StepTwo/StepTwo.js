@@ -5,7 +5,6 @@ import Divider from "@material-ui/core/Divider";
 import TextField from "../FormUi/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Header from "../Header/Header";
 import * as Yup from "yup";
 import "./stepTwo.css";
 import StepOneDetails from "../StepOne/StepOneDetails";
