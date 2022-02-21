@@ -29,10 +29,6 @@ function App() {
         swal("Bingo!", "You Vahak is on the way!", "success");
         console.log("from submiteed", data);
         return;
-      } else {
-        swal("Wrong OTP!", "Please try again!", "error");
-        console.log("Wrong OTP", data);
-        return;
       }
     }
     setCurrentStep((prev) => prev + 1);

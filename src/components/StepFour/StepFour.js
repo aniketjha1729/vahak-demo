@@ -7,6 +7,7 @@ import StepOneDetails from "../StepOne/StepOneDetails";
 import Divider from "@material-ui/core/Divider";
 import StepTwoDetails from "../StepTwo/StepTwoDetails";
 import OtpField from "../FormUi/OtpField";
+import swal from "sweetalert";
 
 const stepFourValidate = Yup.object({
   otp1: Yup.number().required(),
@@ -25,23 +26,50 @@ const StepFour = (props) => {
     one.current.focus();
   }, []);
 
-  const focusTwo = () => {
-    two.current.focus();
+  const focusTwo = (e) => {
+    var key = e.which || e.KeyCode;
+    if (key >= 96 && key <= 105) {
+      two.current.focus();
+    }
   };
 
-  const focusThree = () => {
-    three.current.focus();
+  const focusThree = (e) => {
+    var key = e.which || e.KeyCode;
+    if (key >= 96 && key <= 105) {
+      three.current.focus();
+    }
   };
 
-  const focusFour = () => {
-    four.current.focus();
+  const focusFour = (e) => {
+    var key = e.which || e.KeyCode;
+    if (key >= 96 && key <= 105) {
+      four.current.focus();
+    }
+  };
+
+  const calculateDigit = (x) => {
+    return Math.max(Math.floor(Math.log10(Math.abs(x))), 0) + 1;
   };
 
   const handleSubmit = (values) => {
-    console.log(one);
-    console.log(values.otp1 + values.otp2 + values.otp3 + values.otp4);
-    props.data.otp = values.otp1 + values.otp2 + values.otp3 + values.otp4;
-    props.next(values, true);
+    var otp = values.otp1 + values.otp2 + values.otp3 + values.otp4;
+    if (otp == 1234) {
+      props.data.otp = values.otp1 + values.otp2 + values.otp3 + values.otp4;
+      props.next(values, true);
+    } else if (calculateDigit(otp) == 4) {
+      swal("Wrong OTP!", "Please try again!", "error");
+      values.otp1 = "";
+      values.otp2 = "";
+      values.otp3 = "";
+      values.otp4 = "";
+      one.current.focus();
+    } else {
+      values.otp1 = "";
+      values.otp2 = "";
+      values.otp3 = "";
+      values.otp4 = "";
+      one.current.focus();
+    }
   };
   return (
     <Formik validationSchema={stepFourValidate} initialValues={props.data}>
@@ -93,9 +121,21 @@ const StepFour = (props) => {
               </div>
             </div>
             <div className="formFourOtp">
-              <OtpField name="otp1" inputRef={one} onKeyUp={focusTwo} />
-              <OtpField name="otp2" inputRef={two} onKeyUp={focusThree} />
-              <OtpField name="otp3" inputRef={three} onKeyUp={focusFour} />
+              <OtpField
+                name="otp1"
+                inputRef={one}
+                onKeyUp={(e) => focusTwo(e)}
+              />
+              <OtpField
+                name="otp2"
+                inputRef={two}
+                onKeyUp={(e) => focusThree(e)}
+              />
+              <OtpField
+                name="otp3"
+                inputRef={three}
+                onKeyUp={(e) => focusFour(e)}
+              />
               <OtpField
                 inputRef={four}
                 name="otp4"
