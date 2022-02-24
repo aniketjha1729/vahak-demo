@@ -1,6 +1,5 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import Header from "../Header/Header";
 import TextField from "../FormUi/TextField";
 import Button from "@material-ui/core/Button";
 import * as Yup from "yup";
@@ -25,171 +24,78 @@ const StepThree = (props) => {
     props.next(values);
   };
   return (
-    <div className="bodyContainer">
-      <Header heading="Place your Bid (3/4 step)" />
-      <div className="bodyWrapper">
-        <div className="formContainer">
-          <Formik
-            validationSchema={stepThreeValidate}
-            initialValues={props.data}
-            onSubmit={handleSubmit}
-          >
-            {({ values }) => (
-              <Form>
-                <div className="formOneDataContainer">
-                  <div>
-                    <StepOneDetails
-                      sourceDestination={props.data.sourceDestination}
-                      destination={props.data.destination}
-                      numberOfTravellers={props.data.numberOfTravellers}
-                      carType={props.data.carType}
-                    />
-                  </div>
-                  <div>
-                    <span
-                      className="prevButton"
-                      onClick={() => props.prev(values)}
-                    >
-                      <ModeEditIcon style={{ fontSize: 15 }} />
-                      Edit
-                    </span>
-                  </div>
-                </div>
-                <Divider style={{ marginTop: "20px" }} />
-                <StepTwoDetails
-                  bidAmount={props.data.bidAmount}
-                  stepThree={false}
-                />
-                <Divider style={{ marginTop: "20px" }} />
-                <div className="formThreeContainer">
-                  <div className="formThreeRows">
-                    <MobileField name="mobile" />
-                    <div className="greyBox">
-                      <div>
-                        <FormControlLabel
-                          control={<Checkbox color="primary" />}
-                          label="Get updates on"
-                        />
-                      </div>
-                      <div className="whatsappImg">
-                        <img src={WhatsApp} alt="" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="formThreeRows">
-                    <TextField
-                      name="name"
-                      label="Enter your Name *"
-                      variant="outlined"
-                      inputProps="false"
-                    />
-                  </div>
-                  <div className="formThreeRows">
-                    <TextField
-                      name="remarks"
-                      label="Enter Remarks (optional) "
-                      variant="outlined"
-                      inputProps="false"
-                    />
-                  </div>
-                  <div className="formThreeRows">
-                    <Button
-                      fullWidth
-                      type="submit"
-                      variant="contained"
-                      color="primary"
-                      type="submit"
-                    >
-                      Verify via OTP
-                    </Button>
-                  </div>
-                </div>
-              </Form>
-            )}
-          </Formik>
-        </div>
-      </div>
-      {/* <div className="formConatiner">
-        <Formik
-          validationSchema={stepThreeValidate}
-          initialValues={props.data}
-          onSubmit={handleSubmit}
-        >
-          {({ values }) => (
-            <Form>
-              <div className="form">
-                <div className="journeyDetails-Container">
-                  <StepOneDetails
-                    sourceDestination={props.data.sourceDestination}
-                    destination={props.data.destination}
-                    numberOfTravellers={props.data.numberOfTravellers}
-                    carType={props.data.carType}
+    <Formik
+      validationSchema={stepThreeValidate}
+      initialValues={props.data}
+      onSubmit={handleSubmit}
+    >
+      {({ values }) => (
+        <Form>
+          <div className="formOneDataContainer">
+            <div>
+              <StepOneDetails
+                sourceDestination={props.data.sourceDestination}
+                destination={props.data.destination}
+                numberOfTravellers={props.data.numberOfTravellers}
+                carType={props.data.carType}
+              />
+            </div>
+            <div>
+              <span className="prevButton" onClick={() => props.prev(values)}>
+                <ModeEditIcon style={{ fontSize: 15 }} />
+                Edit
+              </span>
+            </div>
+          </div>
+          <Divider style={{ marginTop: "20px" }} />
+          <StepTwoDetails bidAmount={props.data.bidAmount} stepThree={false} />
+          <Divider style={{ marginTop: "20px" }} />
+          <div className="formThreeContainer">
+            <div className="formThreeRows">
+              <MobileField name="mobile" />
+              <div className="greyBox">
+                <div>
+                  <FormControlLabel
+                    control={<Checkbox color="primary" />}
+                    label="Get updates on"
                   />
-                  <span
-                    className="prevButton"
-                    onClick={() => props.prev(values)}
-                  >
-                    <ModeEditIcon style={{ fontSize: 15 }} />
-                    Edit
-                  </span>
                 </div>
-                <Divider />
-                <StepTwoDetails
-                  bidAmount={props.data.bidAmount}
-                  stepThree={false}
-                />
-                <Divider />
-                <div className="formThreeContainer">
-                  <div className="formThree">
-                    <div className="formThreeRows">
-                      <MobileField name="mobile" />
-                      <div className="whatsapp">
-                        <div>
-                          <FormControlLabel
-                            control={<Checkbox color="primary" />}
-                            label="Get updates on"
-                          />
-                        </div>
-                        <div>
-                          <img src={WhatsApp} alt="" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="formThreeRows">
-                      <TextField
-                        name="name"
-                        label="Enter your Name *"
-                        variant="outlined"
-                        inputProps="false"
-                      />
-                    </div>
-                    <div className="formThreeRows">
-                      <TextField
-                        name="remarks"
-                        label="Enter Remarks (optional) "
-                        variant="outlined"
-                        inputProps="false"
-                      />
-                    </div>
-                    <div className="formThreeRows">
-                      <Button
-                        fullWidth
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        type="submit"
-                      >
-                        Verify via OTP
-                      </Button>
-                    </div>
-                  </div>
+                <div className="whatsappImg">
+                  <img src={WhatsApp} alt="" />
                 </div>
               </div>
-            </Form>
-          )}
-        </Formik>
-      </div> */}
-    </div>
+            </div>
+            <div className="formThreeRows">
+              <TextField
+                name="name"
+                label="Enter your Name *"
+                variant="outlined"
+                inputProps="false"
+              />
+            </div>
+            <div className="formThreeRows">
+              <TextField
+                name="remarks"
+                label="Enter Remarks (optional) "
+                variant="outlined"
+                inputProps="false"
+              />
+            </div>
+            <div className="formThreeRows">
+              <Button
+                fullWidth
+                type="submit"
+                variant="contained"
+                color="primary"
+                type="submit"
+              >
+                Verify via OTP
+              </Button>
+            </div>
+          </div>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
